@@ -13,7 +13,6 @@
 <UserPref name="sequenceText" display_name="Sequence Diagram Text" datatype="hidden" required="true"  />
 
 <Content type="html" view="configuration" preferred_height="300">
-<![CDATA[
     <span>Sequence Text: </span>
     <textarea id="sequenceText" rows="10" cols="100" onchange="Update()"></textarea>
 
@@ -23,7 +22,7 @@
         prefs.set("sequenceText", document.getElementById("sequenceText").value);    
     }
     </script>
-]]></Content>
+</Content>
 
 <Content type="html">
 <![CDATA[
@@ -36,6 +35,7 @@
       var diagram = Diagram.parse(prefs.getString("sequenceText"));
       diagram.drawSVG("diagram", {theme: 'hand'});
     </script>
-]]></Content>
+]]>
+</Content>
 
 </Module>
