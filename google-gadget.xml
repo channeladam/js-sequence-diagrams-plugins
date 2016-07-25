@@ -8,7 +8,7 @@
   <Locale lang="en" country="us" />
 </ModulePrefs>
 
-<UserPref name="sequenceText" display_name="Sequence Diagram Text" datatype="string" />
+<UserPref name="sequenceText" display_name="Sequence Diagram Text" datatype="string" required="true" default_value="A->B: Message" />
 
 <Content type="html">
 <![CDATA[
@@ -18,7 +18,7 @@
 <script src="https://bramp.github.io/js-sequence-diagrams/js/sequence-diagram-min.js"></script>
 <div id="diagram"></div>
 <script>
-  var diagram = Diagram.parse(prefs.getString("StringPrefName"));
+  var diagram = Diagram.parse(prefs.getString("sequenceText"));
   diagram.drawSVG("diagram", {theme: 'hand'});
 </script>
 
