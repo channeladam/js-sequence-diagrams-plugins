@@ -1,5 +1,17 @@
 <Module>
-<ModulePrefs title="js-sequence-diagrams Gadget"/>
+
+<ModulePrefs title="js-sequence-diagrams Gadget"
+    title_url="https://raw.githubusercontent.com/channeladam/js-sequence-diagrams-plugins/master/google-gadget.xml" 
+    height="200" 
+    author="Adam Craven" 
+    author_email="adam@channeladam.com">
+  <Locale lang="en" country="us" />
+</ModulePrefs>
+
+<UserPrefs>
+   <UserPref name="sequenceText" display_name="Sequence Diagram Text" datatype="string" />
+</UserPrefs>
+  
 <Content type="html">
 <![CDATA[
 
@@ -8,10 +20,11 @@
 <script src="https://bramp.github.io/js-sequence-diagrams/js/sequence-diagram-min.js"></script>
 <div id="diagram"></div>
 <script>
-  var diagram = Diagram.parse('A->B: Message');
+  var diagram = Diagram.parse(prefs.getString("StringPrefName"));
   diagram.drawSVG("diagram", {theme: 'hand'});
 </script>
 
 ]]>
 </Content>
+
 </Module>
