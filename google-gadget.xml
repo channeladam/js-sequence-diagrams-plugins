@@ -8,10 +8,8 @@
   <Locale lang="en" country="us" />
 </ModulePrefs>
 
-<UserPrefs>
-   <UserPref name="sequenceText" display_name="Sequence Diagram Text" datatype="string" />
-</UserPrefs>
-  
+<UserPref name="sequenceText" display_name="Sequence Diagram Text" datatype="string" />
+
 <Content type="html">
 <![CDATA[
 
