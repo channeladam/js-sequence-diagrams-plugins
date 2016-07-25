@@ -5,10 +5,17 @@
     height="200" 
     author="Adam Craven" 
     author_email="adam@channeladam.com">
-  <Locale lang="en" country="us" />
+  <Require feature="dynamic-height"/>
+  <Locale lang="en" country="au" />
 </ModulePrefs>
 
-<UserPref name="sequenceText" display_name="Sequence Diagram List2" datatype="list" required="true"  />
+<Content type="html" view="configuration" preferred_height="300">
+    <span>Sequence Text: </span><input type="textarea" id="sequenceText" value=""/>
+</Content>
+
+<!--    
+<UserPref name="sequenceText" display_name="Sequence Diagram List3" datatype="list" required="true"  />
+-->
 
 <Content type="html">
 <![CDATA[
@@ -18,7 +25,11 @@
 <script src="https://bramp.github.io/js-sequence-diagrams/js/sequence-diagram-min.js"></script>
 <div id="diagram"></div>
 <script>
-  var diagram = Diagram.parse(prefs.getString("sequenceText"));
+/*  var prefs = new gadgets.Prefs();
+  var diagram = Diagram.parse(prefs.getString("sequenceText"));*/
+  
+  var diagram = Diagram.parse(document.getElementById("sequenceText").value);
+  
   diagram.drawSVG("diagram", {theme: 'hand'});
 </script>
 
