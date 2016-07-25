@@ -8,7 +8,7 @@
   <Locale lang="en" country="us" />
 </ModulePrefs>
 
-<UserPref name="sequenceText" display_name="Sequence Diagram Text" datatype="list" required="true" default_value="A->B: Message" />
+<UserPref name="sequenceText" display_name="Sequence Diagram List" datatype="list" required="true" default_value="A->B: Message" />
 
 <Content type="html">
 <![CDATA[
