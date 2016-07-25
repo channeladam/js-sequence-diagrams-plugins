@@ -23,8 +23,7 @@
         prefs.set("sequenceText", document.getElementById("sequenceText").value);    
     }
     </script>
-]]>
-</Content>
+]]></Content>
 
 <Content type="html">
 <![CDATA[
@@ -37,7 +36,6 @@
       var diagram = Diagram.parse(prefs.getString("sequenceText"));
       diagram.drawSVG("diagram", {theme: 'hand'});
     </script>
-]]>
-</Content>
+]]></Content>
 
 </Module>
