@@ -13,6 +13,7 @@
 <UserPref name="sequenceText" display_name="Sequence Diagram Text" datatype="hidden" required="true"  />
 
 <Content type="html" view="configuration" preferred_height="300">
+<![CDATA[
     <span>Sequence Text: </span>
     <textarea id="sequenceText" rows="10" cols="100" onchange="Update()"></textarea>
 
@@ -22,6 +23,7 @@
         prefs.set("sequenceText", document.getElementById("sequenceText").value);    
     }
     </script>
+]]>    
 </Content>
 
 <Content type="html">
@@ -29,7 +31,9 @@
     <script src="https://bramp.github.io/js-sequence-diagrams/js/raphael-min.js"></script>
     <script src="https://bramp.github.io/js-sequence-diagrams/js/underscore-min.js"></script>
     <script src="https://bramp.github.io/js-sequence-diagrams/js/sequence-diagram-min.js"></script>
+    
     <div id="diagram"></div>
+    
     <script>
       var prefs = new gadgets.Prefs();
       var diagram = Diagram.parse(prefs.getString("sequenceText"));
