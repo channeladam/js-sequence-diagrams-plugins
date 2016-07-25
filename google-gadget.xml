@@ -10,7 +10,8 @@
 </ModulePrefs>
 
 <Content type="html" view="configuration" preferred_height="300">
-    <span>Sequence Text: </span><input type="textarea" id="sequenceText" value=""/>
+    <span>Sequence Text: </span>
+    <textarea id="sequenceText" rows="10" cols="100"></textarea>
 </Content>
 
 <!--    
