@@ -9,14 +9,14 @@
   <Locale lang="en" country="au" />
 </ModulePrefs>
 
-<UserPref name="themeText" datatype="hidden" />
-<UserPref name="sequenceText" datatype="hidden" />
+<UserPref name="themePref" datatype="hidden" />
+<UserPref name="sequencePref" datatype="hidden" />
 
 <Content type="html" view="configuration" preferred_height="300">
 <![CDATA[
     <span>Theme: </span>
-    <select id="theme" onchange="UpdateTheme()">
-      <option selected value="hand">Hand</option> 
+    <select id="themeSelect" onchange="UpdateTheme()">
+      <option value="hand">Hand</option> 
       <option value="simple">Simple</option>
     </select>
     <br/>
@@ -27,16 +27,20 @@
     var prefs = new gadgets.Prefs();
     
     function Intialise() {
-        var sequenceText = gadgets.util.unescapeString(prefs.getString("sequenceText")); 
-        if (!sequenceText) sequenceText = 'title: Here is a title \n\n \
-participant Alice as a \n \
-participant Bob as b \n \
-participant Charles as c \n \
-participant David as d \n\n \
-a->b: Normal line \n \
-b-->c: Dashed line \n \
-Note right of c: Charles thinks\\nabout it \n \
-c->>d: Open arrow \n \
+        var themeText =  gadgets.util.unescapeString(prefs.getString("themePref")); 
+        if (!themeText) themeText = 'hand';
+        document.getElementById('themeSelect').value = themeText;
+        
+        var sequenceText = gadgets.util.unescapeString(prefs.getString("sequencePref")); 
+        if (!sequenceText) sequenceText = 'title: Here is a title \n\n\
+participant Alice as a \n\
+participant Bob as b \n\
+participant Charles as c \n\
+participant David as d \n\n\
+a->b: Normal line \n\
+b-->c: Dashed line \n\
+Note right of c: Charles thinks\\nabout it \n\
+c->>d: Open arrow \n\
 d-->>a: Dashed open arrow';
         document.getElementById('sequenceText').value = sequenceText;
         
@@ -45,11 +49,11 @@ d-->>a: Dashed open arrow';
     }
 
     function UpdateTheme() {
-        prefs.set("theme", document.getElementById('themeText').value);    
+        prefs.set("themePref", document.getElementById('themeSelect').value);    
     }
     
     function UpdateSequence() {
-        prefs.set("sequenceText", document.getElementById('sequenceText').value);    
+        prefs.set("sequencePref", document.getElementById('sequenceText').value);    
     }
     
     Intialise();
@@ -67,8 +71,8 @@ d-->>a: Dashed open arrow';
     
     <script>
       var prefs = new gadgets.Prefs();
-      var sequenceText = gadgets.util.unescapeString(prefs.getString("sequenceText"));
-      var themeText = prefs.getString("theme");
+      var sequenceText = gadgets.util.unescapeString(prefs.getString("sequencePref"));
+      var themeText = prefs.getString("themePref");
       var diagram = Diagram.parse(sequenceText);
       diagram.drawSVG("diagram", {theme: themeText);
     </script>
