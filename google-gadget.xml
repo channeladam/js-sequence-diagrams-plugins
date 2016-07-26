@@ -74,7 +74,7 @@ d-->>a: Dashed open arrow';
       var sequenceText = gadgets.util.unescapeString(prefs.getString("sequencePref"));
       var themeText = prefs.getString("themePref");
       var diagram = Diagram.parse(sequenceText);
-      diagram.drawSVG("diagram", {theme: themeText);
+      diagram.drawSVG("diagram", {theme: themeText});
     </script>
 ]]>
 </Content>
