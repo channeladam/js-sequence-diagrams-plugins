@@ -19,7 +19,7 @@
       <option value="hand">Hand</option> 
       <option value="simple">Simple</option>
     </select>
-    <br/>
+    <br/><br/>
     <span>Sequence Diagram Text: </span>
     <textarea id="sequenceText" rows="10" cols="100" onchange="UpdateSequence()"></textarea>
 
