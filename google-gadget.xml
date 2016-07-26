@@ -2,7 +2,6 @@
 
 <ModulePrefs title="js-sequence-diagrams Gadget"
     title_url="https://raw.githubusercontent.com/channeladam/js-sequence-diagrams-plugins/master/google-gadget.xml" 
-    height="200" 
     author="Adam Craven" 
     author_email="adam@channeladam.com">
   <Require feature="setprefs"/>
@@ -10,6 +9,10 @@
   <Locale lang="en" country="au" />
 </ModulePrefs>
 
+<UserPref name="theme" display_name="Theme" datatype="enum" default_value="hand">
+    <EnumValue value="hand" display_value="Hand" />
+    <EnumValue value="simple" display_value="Simple" />
+</UserPref>
 <UserPref name="sequenceText" display_name="Sequence Diagram Text" datatype="hidden" />
 
 <Content type="html" view="configuration" preferred_height="300">
@@ -22,7 +25,16 @@
     
     function Intialise() {
         var sequenceText = gadgets.util.unescapeString(prefs.getString("sequenceText")); 
-        if (!sequenceText) sequenceText = 'A -> B: Message';
+        if (!sequenceText) sequenceText = 'title: Here is a title \
+participant Alice as a \
+participant Bob as b \
+participant Charles as c \
+participant David as d \
+a->b: Normal line \
+b-->c: Dashed line \
+Note right of C: C thinks\\nabout it \
+c->>d: Open arrow \
+d-->>a: Dashed open arrow';
         document.getElementById('sequenceText').value = sequenceText;
     }
     
@@ -45,9 +57,10 @@
     
     <script>
       var prefs = new gadgets.Prefs();
-      var sequenceText = gadgets.util.unescapeString(prefs.getString("sequenceText")); 
+      var sequenceText = gadgets.util.unescapeString(prefs.getString("sequenceText"));
+      var themeText = prefs.getString("theme");
       var diagram = Diagram.parse(sequenceText);
-      diagram.drawSVG("diagram", {theme: 'hand'});
+      diagram.drawSVG("diagram", {theme: themeText);
     </script>
 ]]>
 </Content>
