@@ -15,15 +15,22 @@
 <Content type="html" view="configuration" preferred_height="300">
 <![CDATA[
     <span>Sequence Text: </span>
-    <textarea id="sequenceText" rows="10" cols="100" onchange="Update()">
-        A->B: Message
-    </textarea>
+    <textarea id="sequenceText" rows="10" cols="100" onchange="Update()"></textarea>
 
     <script>
     var prefs = new gadgets.Prefs();
+    
+    function Intialise() {
+        var sequenceText = gadgets.util.unescapeString(prefs.getString("sequenceText")); 
+        if (!sequenceText) sequenceText = 'A -> B: Message';
+        document.getElementById('sequenceText').value = sequenceText;
+    }
+    
     function Update() {
         prefs.set("sequenceText", document.getElementById('sequenceText').value);    
     }
+    
+    Intialise();
     </script>
 ]]>    
 </Content>
