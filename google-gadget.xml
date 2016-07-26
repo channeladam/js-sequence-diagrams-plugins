@@ -4,8 +4,7 @@
     title_url="https://raw.githubusercontent.com/channeladam/js-sequence-diagrams-plugins/master/google-gadget.xml" 
     author="Adam Craven" 
     author_email="adam@channeladam.com"
-    height="300"
-    scrolling="true">
+    height="400">
   <Require feature="setprefs"/>
   <Require feature="dynamic-height"/>
   <Locale lang="en" country="au" />
@@ -62,7 +61,7 @@ d-->>a: Dashed open arrow';
 ]]>    
 </Content>
 
-<Content type="html" preferred_height="300">
+<Content type="html" preferred_height="400">
 <![CDATA[
     <script src="https://bramp.github.io/js-sequence-diagrams/js/raphael-min.js"></script>
     <script src="https://bramp.github.io/js-sequence-diagrams/js/underscore-min.js"></script>
