@@ -32,15 +32,15 @@
         document.getElementById('themeSelect').value = themeText;
         
         var sequenceText = gadgets.util.unescapeString(prefs.getString("sequencePref")); 
-        if (!sequenceText) sequenceText = 'title: Here is a title \n\n\
-participant Alice as a \n\
-participant Bob as b \n\
-participant Charles as c \n\
-participant David as d \n\n\
-a->b: Normal line \n\
-b-->c: Dashed line \n\
-Note right of c: Charles thinks\\nabout it \n\
-c->>d: Open arrow \n\
+        if (!sequenceText) sequenceText = 'title: Here is a title \r\n\r\n\
+participant Alice as a \r\n\
+participant Bob as b \r\n\
+participant Charles as c \r\n\
+participant David as d \r\n\r\n\
+a->b: Normal line \r\n\
+b-->c: Dashed line \r\n\
+Note right of c: Charles thinks\\nabout it \r\n\
+c->>d: Open arrow \r\n\
 d-->>a: Dashed open arrow';
         document.getElementById('sequenceText').value = sequenceText;
         
