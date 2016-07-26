@@ -9,16 +9,19 @@
   <Locale lang="en" country="au" />
 </ModulePrefs>
 
-<UserPref name="theme" display_name="Theme" datatype="enum" default_value="hand">
-    <EnumValue value="hand" display_value="Hand" />
-    <EnumValue value="simple" display_value="Simple" />
-</UserPref>
-<UserPref name="sequenceText" display_name="Sequence Diagram Text" datatype="hidden" />
+<UserPref name="themeText" datatype="hidden" />
+<UserPref name="sequenceText" datatype="hidden" />
 
 <Content type="html" view="configuration" preferred_height="300">
 <![CDATA[
-    <span>Sequence Text: </span>
-    <textarea id="sequenceText" rows="10" cols="100" onchange="Update()"></textarea>
+    <span>Theme: </span>
+    <select id="theme" onchange="UpdateTheme()">
+      <option selected value="hand">Hand</option> 
+      <option value="simple">Simple</option>
+    </select>
+    
+    <span>Sequence Diagram Text: </span>
+    <textarea id="sequenceText" rows="10" cols="100" onchange="UpdateSequence()"></textarea>
 
     <script>
     var prefs = new gadgets.Prefs();
@@ -36,9 +39,16 @@ Note right of c: Charles thinks\\nabout it \n
 c->>d: Open arrow \n
 d-->>a: Dashed open arrow';
         document.getElementById('sequenceText').value = sequenceText;
+        
+        UpdateTheme();
+        UpdateSequence();
+    }
+
+    function UpdateTheme() {
+        prefs.set("theme", document.getElementById('themeText').value);    
     }
     
-    function Update() {
+    function UpdateSequence() {
         prefs.set("sequenceText", document.getElementById('sequenceText').value);    
     }
     
