@@ -25,15 +25,15 @@
     
     function Intialise() {
         var sequenceText = gadgets.util.unescapeString(prefs.getString("sequenceText")); 
-        if (!sequenceText) sequenceText = 'title: Here is a title \
-participant Alice as a \
-participant Bob as b \
-participant Charles as c \
-participant David as d \
-a->b: Normal line \
-b-->c: Dashed line \
-Note right of C: C thinks\\nabout it \
-c->>d: Open arrow \
+        if (!sequenceText) sequenceText = 'title: Here is a title \n\n
+participant Alice as a \n
+participant Bob as b \n
+participant Charles as c \n
+participant David as d \n\n
+a->b: Normal line \n
+b-->c: Dashed line \n
+Note right of c: Charles thinks\\nabout it \n
+c->>d: Open arrow \n
 d-->>a: Dashed open arrow';
         document.getElementById('sequenceText').value = sequenceText;
     }
