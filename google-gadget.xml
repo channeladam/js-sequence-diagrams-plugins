@@ -10,17 +10,19 @@
   <Locale lang="en" country="au" />
 </ModulePrefs>
 
-<UserPref name="sequenceText" display_name="Sequence Diagram Text" datatype="hidden" required="true"  />
+<UserPref name="sequenceText" display_name="Sequence Diagram Text" datatype="hidden" />
 
 <Content type="html" view="configuration" preferred_height="300">
 <![CDATA[
     <span>Sequence Text: </span>
-    <textarea id="sequenceText" rows="10" cols="100" onchange="Update()"></textarea>
+    <textarea id="sequenceText" rows="10" cols="100" onchange="Update()">
+        A->B: Message
+    </textarea>
 
     <script>
     var prefs = new gadgets.Prefs();
     function Update() {
-        prefs.set("sequenceText", document.getElementById("sequenceText").value);    
+        prefs.set("sequenceText", document.getElementById('sequenceText').value);    
     }
     </script>
 ]]>    
