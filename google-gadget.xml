@@ -38,7 +38,8 @@
     
     <script>
       var prefs = new gadgets.Prefs();
-      var diagram = Diagram.parse(prefs.getString("sequenceText"));
+      var sequenceText = gadgets.util.unescapeString(prefs.getString("sequenceText")); 
+      var diagram = Diagram.parse(sequenceText);
       diagram.drawSVG("diagram", {theme: 'hand'});
     </script>
 ]]>
