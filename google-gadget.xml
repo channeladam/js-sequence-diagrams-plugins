@@ -49,11 +49,11 @@ d-->>a: Dashed open arrow';
     }
 
     function UpdateTheme() {
-        prefs.set("themePref", document.getElementById('themeSelect').value);    
+        prefs.set("themePref", gadgets.util.escapeString(document.getElementById('themeSelect').value));
     }
     
     function UpdateSequence() {
-        prefs.set("sequencePref", document.getElementById('sequenceText').value);    
+        prefs.set("sequencePref", gadgets.util.escapeString(document.getElementById('sequenceText').value));
     }
     
     Intialise();
@@ -72,7 +72,7 @@ d-->>a: Dashed open arrow';
     <script>
       var prefs = new gadgets.Prefs();
       var sequenceText = gadgets.util.unescapeString(prefs.getString("sequencePref"));
-      var themeText = prefs.getString("themePref");
+      var themeText = gadgets.util.unescapeString(prefs.getString("themePref"));
       var diagram = Diagram.parse(sequenceText);
       diagram.drawSVG("diagram", {theme: themeText});
     </script>
